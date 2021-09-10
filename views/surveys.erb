@@ -1,8 +1,22 @@
+<html>
+  <body>
+    <header>
+      <h1>Survey Application</h1>
+    </header>
+    <main>
+
+    </main>
+  </body>
+</html>
+
+
 <h1>Index</h1>
-<ul>
-  <li>
-    <a href="/surveys/<%=@survey_id%>">Survey<a>
-  </li>
+<ul id="surveys">
+  <% @surveys.each_with_index do |survey, index|%>
+    <li>
+      <a href="/surveys/<%=index%>"><%= survey[:name]%><a>
+    </li>
+  <%end%>
 </ul>
 
 <h2><a href="/surveys/new"> Create a new survey</a></h2>
