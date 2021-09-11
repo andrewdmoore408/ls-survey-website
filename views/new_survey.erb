@@ -1,10 +1,16 @@
+<% if session[:error] %>
+  <div class="flash error">
+    <p><%= session.delete(:error)%></p>
+  </div>
+<% end %>
+
 <form actions="/surveys/new" method="post">
   <dl>
     <dt>
-      <label for="list_name">Enter the name of your new list:</label>
+      <label for="survey_name">Enter the name of your new list:</label>
     </dt>
     <dd>
-      <input name="list_name" placeholder="Survey Name" type="text" value="">
+      <input name="survey_name" placeholder="Survey Name" type="text" value="">
     </dd>
   </dl>
   <fieldset class="actions">
