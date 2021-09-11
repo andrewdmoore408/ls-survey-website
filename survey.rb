@@ -33,10 +33,10 @@ post "/surveys/new" do
   survey_name = params[:survey_name].strip
   if survey_name.size >= 1 && survey_name.size <= 100
     session[:surveys] << {name: survey_name}
-    session[:success] = "The list has been created"
+    session[:success] = "Your survey has been created"
     redirect "/"
   else
-    session[:error] = "List name must be between 1 and 100 characters"
+    session[:error] = "Survey name must be between 1 and 100 characters"
     erb :new_survey
   end
 end
