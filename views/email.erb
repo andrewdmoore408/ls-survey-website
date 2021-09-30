@@ -1,0 +1,33 @@
+<% if session[:error] %>
+  <div class="flash error">
+    <b><p><%= session.delete(:error)%></p></b>
+  </div>
+<% end %>
+
+<h1>Welcome!</h1>
+
+<html>
+  <body>
+    <header>
+      <h2>Login</h2>
+    </header>
+    <main>
+      <p>Enter email before entering survey information. This data is purely for verification purposes.</p>
+    </main>
+  </body>
+</html>
+
+<form actions="/email" method="post">
+  <dl>
+    <dt>
+      <label for="email">Please enter you email:</label>
+    </dt>
+    <dd>
+      <input name="email" placeholder="Email Address" type="text" value="">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/surveys">Cancel</a>
+  </fieldset>
+</form>
