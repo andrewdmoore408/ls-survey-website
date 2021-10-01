@@ -14,7 +14,7 @@ end
 
 before do
   session[:surveys] ||= []
-  session[:email] ||= []
+  session[:email] ||= ""
 end
 
 helpers do
@@ -52,11 +52,7 @@ post "/email" do
     erb :email
     session[:error] = "Please enter a valid email address"
   elsif session[:email].empty?
-    session[:email] << params["email"]
-    session[:success] = "Email added successfully"
-  else
-    session[:email].clear
-    session[:email] << params["email"]
+    session[:email] = params["email"]
     session[:success] = "Email added successfully"
   end
 
